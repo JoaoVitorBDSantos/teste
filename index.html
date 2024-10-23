@@ -19,7 +19,7 @@
         const resultcontainer = document.getElementById('result');
         function onScanSuccess(qrCodeMessage) {
             // Exibe o resultado da leitura
-            resultcontainer.innerHTML = qrCodeMessage;
+            resultcontainer.innerHTML = `<a href=${qrCodeMessage}> Acesse a pagina </a>`;
             resultcontainer.classList.remove('d-none');
             html5QrCode.clear();
         }
