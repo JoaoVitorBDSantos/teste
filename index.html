@@ -18,7 +18,7 @@
     <script>
         function onScanSuccess(qrCodeMessage) {
             // Exibe o resultado da leitura
-            document.getElementById("result").innerText = "QR Code lido: " + qrCodeMessage;
+            console.log("QR Code lido: " + qrCodeMessage);
         }
 
         function onScanError(errorMessage) {
