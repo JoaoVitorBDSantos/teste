@@ -16,9 +16,12 @@
     <p id="result"></p>
 
     <script>
+        const resultcontainer = document.getElementById('result');
         function onScanSuccess(qrCodeMessage) {
             // Exibe o resultado da leitura
-            console.log("QR Code lido: " + qrCodeMessage);
+            resultcontainer.innerHTML = qrCodeMessage;
+            resultcontainer.classList.remove('d-none');
+            html5QrCode.clear();
         }
 
         function onScanError(errorMessage) {
