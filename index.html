@@ -36,7 +36,12 @@
             config,
             onScanSuccess,
             onScanError
-        ).catch(err => {
+        )
+        .html5QrCode.stop().then((ignore) => {
+            // QR Code scanning is stopped.
+        })
+        .catch((err) => {
+            // Stop failed, handle it.
             console.error("Erro ao iniciar o leitor: ", err);
             document.getElementById("result").innerText = "Erro ao acessar a câmera.";
         });
