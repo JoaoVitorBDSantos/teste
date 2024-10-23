@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leitor de QR Code</title>
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    
+    <style>
+        #reader { width: 300px; height: 300px; }
+    </style>
+</head>
+<body>
+    <h1>Leitor de QR Code</h1>
+    <div id="reader"></div>
+    <p id="result"></p>
+
+    <script>
+        function onScanSuccess(qrCodeMessage) {
+            // Exibe o resultado da leitura
+            document.getElementById("result").innerText = "QR Code lido: " + qrCodeMessage;
+        }
+
+        function onScanError(errorMessage) {
+            // Caso precise tratar erros
+            console.warn("Código QR não lido: ", errorMessage);
+        }
+
+        // Inicializa o leitor de QR Code
+        const html5QrCode = new Html5Qrcode("reader");
+        const config = { fps: 10, qrbox: 250 };
+
+        // Inicia a leitura
+        html5QrCode.start(
+            { facingMode: "environment" }, // Usa a câmera traseira
+            config,
+            onScanSuccess,
+            onScanError
+        ).catch(err => {
+            console.error("Erro ao iniciar o leitor: ", err);
+            document.getElementById("result").innerText = "Erro ao acessar a câmera.";
+        });
+    </script>
+</body>
+</html>
