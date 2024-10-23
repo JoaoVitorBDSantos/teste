@@ -7,7 +7,7 @@
     <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
     
     <style>
-        #reader { width: 600px; height: 500px; }
+        #reader { width: 300px; height: 300px; }
     </style>
 </head>
 <body>
@@ -31,7 +31,7 @@
 
         // Inicializa o leitor de QR Code
         const html5QrCode = new Html5Qrcode("reader");
-        const config = { fps: 10, qrbox: {width: 400, height:400} };
+        const config = { fps: 10, qrbox: 250 };
 
         // Inicia a leitura
         html5QrCode.start(
